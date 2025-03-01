@@ -1,0 +1,145 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Pantalla de carga con focos */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    z-index: 1000;
+}
+
+.lights {
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.light {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    animation: energyFlow 2s infinite;
+}
+
+/* Animación de energía pasando entre los focos */
+@keyframes energyFlow {
+    0% {
+        background-color: #555;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    25% {
+        background-color: #ff6600;
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+    }
+    50% {
+        background-color: #555;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    75% {
+        background-color: #ff6600;
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+    }
+    100% {
+        background-color: #555;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Sincronización de la animación para crear el flujo de energía entre los focos */
+.light:nth-child(1) {
+    animation-delay: 0s;
+}
+.light:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.light:nth-child(3) {
+    animation-delay: 1s;
+}
+.light:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+/* Ocultar el contenido hasta que cargue */
+.hidden {
+    display: none;
+}
+
+/* Animación de entrada para el contenido */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in-visible {
+    opacity: 1;
+}
+
+/* Deslizarse desde la parte inferior */
+.slide-in-bottom {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide-in-bottom-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Imagen con efecto zoom */
+.zoom-img {
+    width: 300px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom-img:hover {
+    transform: scale(1.1);
+}
+
+/* Efecto en los párrafos */
+p {
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+p:hover {
+    color: #00aaff;
+}
+
+/* Botón flotante animado */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+    background-color: #ff3300;
+}
